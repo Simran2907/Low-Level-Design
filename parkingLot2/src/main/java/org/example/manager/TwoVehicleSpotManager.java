@@ -18,7 +18,7 @@ public class TwoVehicleSpotManager extends ParkingLotManager{
 
     @Override
     public Optional<ParkingSpace> findAvailableSpace(Vehicle vehicle) {
-        ParkingFloor parkingFloor = pparkingFloors.stream()
+        ParkingFloor parkingFloor = parkingLot.getParkingFloors().stream()
                 .sorted(Comparator.comparingInt(ParkingFloor::getFloorNo))
                 .filter(f -> !f.isFull())
                 .filter(f -> f.getParkingSpaceList()
